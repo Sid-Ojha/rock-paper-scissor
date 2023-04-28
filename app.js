@@ -14,17 +14,30 @@ function getComputerChoice(){
     return choices[randomNumber];
 }
 
+function converttoWord(letter){
+    if(letter=== "r")return "Rock";
+    if(letter=== "p")return "Paper";
+    return "Scissor";
+
+}
+
+
+
 function win(userChoice,computerChoice){
  userScore++;
  userScore_span.innerHTML = userScore;
  computerScore_span.innerHTML= computerScore;
- result_p.innerHTML= userChoice+" beats "+computerChoice+" you win. ";
+ result_p.innerHTML= converttoWord(userChoice)  +" beats "+converttoWord(computerChoice)+", you Win. ";
+ document.getElementById(userChoice).classList.add('green_glow');
 }
-function lose(){
-
+function lose(userChoice,computerChoice){
+    computerScore++;
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML= computerScore;
+    result_p.innerHTML= converttoWord(userChoice)  +" loses to "+converttoWord(computerChoice)+", you Lost. ";
 }
-function draw(){
-
+function draw(userChoice,computerChoice){
+    result_p.innerHTML= converttoWord(userChoice)  +" equals to "+converttoWord(computerChoice)+", it's a Draw.";
 }
 function game(userChoice)
 {
